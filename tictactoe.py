@@ -80,8 +80,9 @@ def Check_Win(player):
         return True
     
     if boards[0][0] == player and boards[1][1] == player and boards[2][2] == player:
-        draw_desc_Diagonal(player)
+        draw_desc_Diagonal(player) #error
         return True
+    
     return False
 
 
@@ -120,7 +121,7 @@ def draw_desc_Diagonal(player):
     elif player == 2:
         color = CROSS_COLOR
 
-    player.draw.line( screen, color, (15, 15), (WIDTH - 15, HEIGHT - 15), 15)
+    player.draw.line( screen, color, (15, 15), (WIDTH - 15, HEIGHT - 15), 15) #error
 
 def restart():
     screen.fill(BG_COLOR)
@@ -164,7 +165,7 @@ while True:
             if avilable_Square( clicked_row, clicked_col ):
                 if player == 1:
                     mark_Square(clicked_row, clicked_col, 1)
-                    if Check_Win(player):
+                    if Check_Win(player): #error
                         game_Over = True
                     player = 2
 
@@ -178,7 +179,6 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_r:
                 restart()
-
                 game_Over = False
 
     pygame.display.update()
